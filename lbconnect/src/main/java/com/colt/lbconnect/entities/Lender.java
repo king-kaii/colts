@@ -5,14 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="Lendor")
+
 @Entity
 public class Lender {
 
-	@Column
+	@Id
 	private int id;
 	
-	@Id
+	@Column
 	private String name;
 	
 	@Column
