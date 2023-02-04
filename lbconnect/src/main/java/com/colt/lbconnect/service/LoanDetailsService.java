@@ -71,6 +71,7 @@ public class LoanDetailsService {
 		if(borrowerREpository.findById(applyLoanDTO.getBorrowerId()).isPresent()) {
 			loanDetails.setBorrowerName(borrowerREpository.findById(applyLoanDTO.getBorrowerId()).get().getName());
 			}
+		
 		loanDetails.setLoanAmount(applyLoanDTO.getAmount());
 		loanDetails.setAgreementDate(LocalDate.now());
 		loanDetails.setBalanceAmount(applyLoanDTO.getAmount());
