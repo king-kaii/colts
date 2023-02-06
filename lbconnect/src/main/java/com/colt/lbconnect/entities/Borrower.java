@@ -12,7 +12,6 @@ import javax.persistence.Id;
 public class Borrower {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
 	@Column
