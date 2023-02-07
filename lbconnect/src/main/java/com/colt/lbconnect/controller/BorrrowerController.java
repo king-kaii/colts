@@ -31,8 +31,12 @@ public class BorrrowerController {
 	}
 	@PostMapping("/register")
 	public String saveBorrower(@RequestBody BorrowerRegistrationDTO borrower) {
-		 borrowerService.registerBorrower(borrower);
+		 if(borrowerService.registerBorrower(borrower)) {
 		 return "Successfully Registered";
+		 }else {
+			 return "Borrower NOt registered check with Customer care";
+		 }
+		
 
 	}
 

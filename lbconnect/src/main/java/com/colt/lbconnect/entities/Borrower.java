@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class Borrower {
 
-	@Id
+	@Id  @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
 	@Column
