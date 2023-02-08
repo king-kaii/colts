@@ -28,6 +28,11 @@ public class PaymentService {
 		int balanceEMIs = loanDetails.getBalanceEmis();
 		int paymentId = 0;
 
+		return checkEMIdetails(id, uTR, amount, loanDetails, currentBalance, balanceEMIs, paymentId);
+	}
+
+	private int checkEMIdetails(int id, long uTR, int amount, LoanDetails loanDetails, int currentBalance,
+			int balanceEMIs, int paymentId) {
 		Payments payments = new Payments();
 		payments.setAmount(amount);
 		payments.setLoanId(id);
