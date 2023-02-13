@@ -16,6 +16,7 @@ import com.colts.loanbatch.mongo.PaymentsMongo;
 import com.colts.loanbatch.mysql.Payments;
 import com.colts.loanbatch.mysql.PaymentsRepository;
 
+
 @RestController
 public class LoanBatchController {
 
@@ -25,27 +26,23 @@ public class LoanBatchController {
 	@Autowired 
 	PaymentsRepository paymentsRepository;
 	
-	
 	@GetMapping("/movedata")
 	@Transactional
-	@Scheduled(cron = "*/50 * * * * *")
+	//@Scheduled(cron = "*/50 * * * * *")
 	public void moveData() {
 		List<Payments> paymentList = new ArrayList<>();
 		List<PaymentsMongo> paymentMongoList = new ArrayList<>();
 		paymentList= (List<Payments>) paymentsRepository.findAll();
+		processor(paymentList, paymentMongoList);
+		payMongoRepository.saveAll(paymentMongoList);
 		
+	}
+
+	private void processor(List<Payments> paymentList, List<PaymentsMongo> paymentMongoList) {
 		for(Payments p : paymentList) {
 			PaymentsMongo pm = new PaymentsMongo(p.getPaymentId(), p.getLoanId(),LocalDate.now(), p.getUTR(), p.getAmount());
 			paymentMongoList.add(pm);
 		}
-		
-		payMongoRepository.saveAll(paymentMongoList);
-		
 	}
 	
-	
-	
-	public void sayHi() {
-		System.out.println("I am running for every one minutes");
-	}
 }
