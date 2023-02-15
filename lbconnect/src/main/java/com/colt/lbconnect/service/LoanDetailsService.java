@@ -15,6 +15,7 @@ import com.colt.lbconnect.repository.BorrowerRepository;
 import com.colt.lbconnect.repository.LenderRepository;
 import com.colt.lbconnect.repository.LoanDetailsRepository;
 
+
 @Service
 public class LoanDetailsService {
 	
@@ -26,6 +27,11 @@ public class LoanDetailsService {
 	@Autowired
 	BorrowerRepository borrowerREpository;
 	
+	private final ArtemisProducer producer;
+	
+	public LoanDetailsService(ArtemisProducer producer) {
+        this.producer = producer;
+    }
 	public Iterable<LoanDetails> getLoanDetails(){
 		return loanDetailsRepository.findAll();
 	}
@@ -82,7 +88,15 @@ public class LoanDetailsService {
         loanDetails.setProcessingFee(1000);
         savedloanDetails=loanDetailsRepository.save(loanDetails);
         
+        String email =borrowerREpository.findById(applyLoanDTO.getBorrowerId()).get().getEmail();
+        prepareMessageAndSend(email,loanDetails.toString());
 		return savedloanDetails.getLoanId();
+	}
+
+	private void prepareMessageAndSend(String email, String loanDetails) {
+		
+		producer.send(email+":"+loanDetails);
+		
 	}
 	 
 }

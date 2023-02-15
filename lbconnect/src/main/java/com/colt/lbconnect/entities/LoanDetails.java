@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @Table(name="tbl_Loans")
 public class LoanDetails {
 	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int loanId;
@@ -169,5 +170,12 @@ public class LoanDetails {
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		return "loanId=" + loanId + ", lenderId=" + lenderId + ", borrowerId=" + borrowerId
+				+ ", lenderName=" + lenderName + ", borrowerName=" + borrowerName + ", agreementDate=" + agreementDate
+				+ ", loanAmount=" + loanAmount + ", paidAmount=" + paidAmount + ", balanceAmount=" + balanceAmount
+				+ ", emiAmount=" + emiAmount + ", emis=" + emis + ", paidEmis=" + paidEmis + ", balanceEmis="
+				+ balanceEmis + ", processingFee=" + processingFee ;
+	}
 }
