@@ -80,12 +80,12 @@ public class BatchConfiguration {
     @Bean
     public Job jobA(){
        return jbf.get("jobA")
-              .incrementer(new RunIdIncrementer())
-              .listener(listener())
-              .start(stepA())
+              .incrementer(new RunIdIncrementer()).flow(stepA()).end().build()
+              //.listener(listener())
+              //.start(stepA())
            // .next(stepB()) 
            // .next(stepC())
-              .build()
+            //  .build()
        ;
     }
 	
