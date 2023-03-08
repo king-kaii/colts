@@ -1,0 +1,26 @@
+Make your docker up and running
+
+right click on parent project--> openin local terminal-->  mvn clean install
+right click on eureka--> openin local terminal--> mvn clean install
+right click on api-gateway--> openin local terminal-->mvn clean install
+right click on lbconnect-->openin local terminal-->mvn clean install
+right click on lbconnect2-->openin local terminal-->mvn clean install
+right click on scorecheck-->openin local terminal-->mvn clean install
+
+
+
+right click on eureka--> openin local terminal--> mvn spring-boot:run
+right click on api-gateway--> openin local terminal-->mvn spring-boot:run
+right click on lbconnect-->openin local terminal-->mvn spring-boot:run
+right click on scorecheck-->openin local terminal-->mvn spring-boot:run
+
+
+Eureka is running on 8761--> localhost:8761 --> modify lb connect application.properties DB URLs if needed.
+API GATEWAY is running on 9091
+
+To check Load Balancer : http://localhost:9091/getScorelc
+
+To check API Gateway-->Sorecheck communication--> http://localhost:9091/getScore
+
+
+
