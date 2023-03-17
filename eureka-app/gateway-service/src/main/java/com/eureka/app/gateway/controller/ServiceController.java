@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class ServiceController {
+	
 	@Autowired
 	RestTemplate restTemplate;
 
@@ -59,6 +60,12 @@ public class ServiceController {
 
         
 		return Integer.parseInt(response);
+	}
+	
+	@RequestMapping(value = "/hi", method = RequestMethod.GET)
+	public String say() {
+
+		return "Hello";
 	}
 
 

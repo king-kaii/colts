@@ -58,11 +58,10 @@ public class BorrowerService {
 
 	public int calculateScore(int id) {
 
-		/*ResponseEntity<String> result = restTemplate.exchange("http://localhost:9091/getScore/" + id,
+		ResponseEntity<String> result = restTemplate.exchange("http://localhost:9091/getScore/" + id,
 				HttpMethod.GET, null, String.class);
 
-		return Integer.parseInt(result.getBody().toString());*/
-		return 1;
+		return Integer.parseInt(result.getBody().toString());
 
 	}
 

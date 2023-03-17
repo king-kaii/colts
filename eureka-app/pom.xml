@@ -18,8 +18,9 @@
         <module>eureka-server</module>
         <module>scorecheck</module>
         <module>lbconnect</module>
-       <!-- <module>school-service</module>
-		<module>student-service</module> -->
+       <module>loanbatch</module>
+		<module>loanhistory</module>
+		<module>artemis-demo-consumer</module>
 		
     </modules>
 </project>
