@@ -52,16 +52,6 @@ public class ServiceController {
 		return Integer.parseInt(response);
 	}
 	
-	@RequestMapping(value = "/getScorelc", method = RequestMethod.GET)
-	public int gettinscorelc() {
-		String response = restTemplate.exchange("http://loan-connect/borrower/calculateScore",
-				HttpMethod.GET, null, new ParameterizedTypeReference<String>() {
-				}).getBody();
-
-        
-		return Integer.parseInt(response);
-	}
-	
 	@RequestMapping(value = "/hi", method = RequestMethod.GET)
 	public String say() {
 

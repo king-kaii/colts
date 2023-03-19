@@ -1,0 +1,13 @@
+Before coming to the Controller
+-->WebSecuritySecurity
+-->Calling filter before each request
+Step1:>
+First Separating token value from bearer
+Passing token to JWT and extarcting Payload
+[sub,iat,exp]
+taking this user name--> pass this to userRepository-->User Object-->dbuserName
+
+taking this user name and evaluating whether DBUsername and JWT extarcted userName is same or not  
+Checking iat,exp values to know the validity of the token
+
+Authenticated ==trye and forwarding request to further

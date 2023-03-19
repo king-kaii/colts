@@ -57,7 +57,7 @@ public class BorrowerService {
 	}
 
 	public int calculateScore(int id) {
-
+		System.out.println("Inside LB BS");
 		ResponseEntity<String> result = restTemplate.exchange("http://localhost:9091/getScore/" + id,
 				HttpMethod.GET, null, String.class);
 

@@ -41,6 +41,7 @@ public class BorrrowerController {
 	}
 	@GetMapping("/calculateScore")
 	public int calculateScore() {
+		System.out.println("Inside LB BC");
 		return borrowerService.calculateScore(12);
 	}
 	
